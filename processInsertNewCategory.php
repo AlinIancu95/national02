@@ -1,8 +1,10 @@
 <?php
 include "functions.php";
 
-$category = new Category();
-$category->fromArray($_POST);
-$category->save();
+$category = new \Entities\Categories();
+$category->setName($_POST['name']);
+
+$entityManager->persist($category);
+$entityManager->flush();
 
 header('Location: index.php');

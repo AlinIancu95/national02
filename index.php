@@ -1,8 +1,6 @@
 <?php
 include "functions.php";
 
-use Classes\Category;
-
 $articles = $entityManager->getRepository(\Entities\Articles::class)->findBy([],['id'=>'DESC'],2);
 
 $article = $articles[0];

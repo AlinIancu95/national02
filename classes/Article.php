@@ -29,7 +29,7 @@ class Article extends Base
 
     public function getImages()
     {
-        return Image::findBy('articleId', $this->getId());
+        return Image::findBy('article_id', $this->getId());
     }
 
     public function getFirstImage()

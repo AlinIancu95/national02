@@ -6,7 +6,7 @@ $article =  $entityManager->getRepository(\Entities\Articles::class)->find($id);
 $categories = $entityManager->getRepository(\Entities\Categories::class)->findAll();
 $user = getAuthUser();
 
-$comments = $entityManager->getRepository(\Entities\Comments::class)->findBy(['articleId'=>$id],['id'=>'DESC'], 10);
+$comments = $entityManager->getRepository(\Entities\Comments::class)->findBy(['articleId'=>$id],['id'=>'DESC'], 4);
 
 
 $template = $twig->load('article.html.twig');

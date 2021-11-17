@@ -1,6 +1,7 @@
 <?php
 include "functions.php";
 
+    use Classes\Article;
     $query = "SELECT * FROM articles";
 
     $filters = "";

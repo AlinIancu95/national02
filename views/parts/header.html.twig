@@ -66,7 +66,7 @@
                                     </a>
                                 {% endif %}
                             </li>
-                            {% if user and user.isAdmin() %}
+                            {% if user and user.role == 'admin' %}
                             <li class="nav-item">
                                 <a class="nav-link" href="adminPage.php">Admin Panel</a>
                             </li>

@@ -4,7 +4,7 @@
             <div class="form-group">
                 <label for="text">Adauga comentariu:</label>
                 <p id="errorText" class="text-danger d-none">Comentariu necesita cel putin 3 caractere si cel mult 250.</p>
-                <textarea style="height: 80px"  name="comment" class="form-control textAreaForm" id="///{{ article.id }}" placeholder="Adauga comentariu"></textarea>
+                <textarea style="height: 80px"  name="comment" class="form-control textAreaForm" id="{{ article.id }}" placeholder="Adauga comentariu"></textarea>
                 <input type="hidden" name="articleId" id="articleId" value="{{ article.id }}" />
             </div>
             <button type="submit" class="btn btn-primary" id="comments">Comenteaza</button>

@@ -17,7 +17,7 @@
                         <label for="password">Parola:</label>
                         <input type="password" name="password" class="form-control" id="password" placeholder="Parola">
                     </div>
-                    {% if user and user.isAdmin() %}
+                    {% if user and user.role == 'admin' %}
                     <div class="form-group">
                         <label for="password">Role:</label>
                         <select type="text" name="role" class="form-control" id="role" placeholder="Role">

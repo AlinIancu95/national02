@@ -31,9 +31,57 @@ class ProductImages
     /**
      * @var string
      *
-     * @ORM\Column(name="productId", type="string", length=50, nullable=false)
+     * @ORM\Column(name="product_id", type="string", length=50, nullable=false)
      */
     private $productid = '0';
+
+    /**
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param int $id
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
+    /**
+     * @return string
+     */
+    public function getFile()
+    {
+        return $this->file;
+    }
+
+    /**
+     * @param string $file
+     */
+    public function setFile($file)
+    {
+        $this->file = $file;
+    }
+
+    /**
+     * @return string
+     */
+    public function getProductid()
+    {
+        return $this->productid;
+    }
+
+    /**
+     * @param string $productid
+     */
+    public function setProductid($productid)
+    {
+        $this->productid = $productid;
+    }
 
 
 }

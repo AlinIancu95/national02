@@ -61,7 +61,7 @@ class Articles
     private $images;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Usenrs::class, inversedBy="articles")
+     * @ORM\ManyToOne(targetEntity=Users::class, inversedBy="articles")
      * @ORM\JoinColumn(nullable=false)
      */
     private $user;

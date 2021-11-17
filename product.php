@@ -2,12 +2,8 @@
 include "parts/header.php";
 
 $user = getAuthUser();
-$categories = Category::findAll();
-$newProductIds = query('SELECT id FROM products ORDER BY id DESC LIMIT 4;');
-$products = [];
-foreach ($newProductIds as $newProductId) {
-    $product = new Product($newProductId['id']);
+$products = $entityManager->getRepository(\Entities\Products::class)->findBy([], ['id'=>'DESC'], 4);
+$product = $products[0];
 
-}
 $template = $twig->load('product.html.twig');
-echo $template->render(['product'=>$product, 'user'=>$user, 'categories'=>$categories]);
+echo $template->render(['products'=>$products, 'user'=>$user, 'product'=>$product ]);

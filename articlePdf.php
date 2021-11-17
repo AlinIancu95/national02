@@ -5,7 +5,7 @@ require __DIR__ . '/vendor/autoload.php';
 $pdf = new TCPDF();                 // create TCPDF object with default constructor args
 $pdf->AddPage();                    // pretty self-explanatory
 $id= $_GET['id'];
-$article = new Article($id);
+$article = $entityManager->getRepository(\Entities\Articles::class)->find($id);
 $html = '<div class="col-10 mb-4">
             <div class="card" style="width: 650px;">
             <a href="article.php?id='.$article->getId().'"><img class="card-img-top" src="images/'.$article->getFirstImage()->file.'" alt="'.$article->name.'"></a>

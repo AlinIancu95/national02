@@ -1,15 +1,22 @@
 <?php
 include "functions.php";
+$userName = $_POST['username'];
+$userEmail = $_POST['email'];
+$userN = $entityManager->getRepository(\Entities\Users::class)->findBy(array('username' => $userName));
+$userE = $entityManager->getRepository(\Entities\Users::class)->findBy(array('email' => $userEmail));
 
-if (count(User::findBy('username', $_POST['username'])) > 0 || count(user::findBy('email', $_POST["email"])) > 0){
+if (count($userN) > 0 || count($userE) > 0){
     header('Location: newUser.php');
 } else {
-    $newUser = new User();
-    $newUser->password = md5($_POST['password']);
-    $newUser->email = $_POST['email'];
-    $newUser->role = 'user';
-    $newUser->username = $_POST['username'];
-    $newUser->save();
+    $user = new \Entities\Users();
+
+    $user->setPassword(md5($_POST['password']));
+    $user->setEmail($_POST['email']);
+    $user->setRole('user');
+    $user->setUsername($_POST['username']);
+
+    $entityManager->persist($user);
+    $entityManager->flush();
 
     header('Location: index.php');
 }

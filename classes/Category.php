@@ -8,7 +8,7 @@ class Category extends Base
 
     public function getArticles()
     {
-        return Article::findBy('categoryId', $this->getId());
+        return Article::findBy('category_id', $this->getId());
     }
 
     public static function getTableName()
